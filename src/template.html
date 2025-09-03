@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,5 +6,40 @@
     <title>Starter Template</title>
   </head>
   <body>
+    <header>
+      <div class="headerCenter">
+        <img src="libLogo.png" alt="" />
+      </div>
+    </header>
+    <div class="addBookDiv">
+      <button class="newBookBtn">New Book</button>
+      <form class="bookForm">
+        <form>
+          <label for="bookName"
+            >Book Title:
+            <input type="text" id="bookName" name="bookName" />
+          </label>
+          <label for="bookAuthor"
+            >Author:
+            <input type="text" id="bookAuthor" name="author" />
+          </label>
+          <label for="bookPages"
+            >Pages:
+            <input type="number" id="bookPages" name="pages" />
+          </label>
+          <label for="bookReadStatus"
+            >Status
+            <select id="bookReadStatus" name="bookReadStatus">
+              <option value="Read">Read</option>
+              <option value="Reading">Reading</option>
+              <option value="Not Read">Not Read</option>
+            </select>
+          </label>
+
+          <button class="addBookBtn">Add Book</button>
+        </form>
+      </form>
+    </div>
+    <div class="container"></div>
   </body>
 </html>
