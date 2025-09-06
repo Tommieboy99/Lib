@@ -6,30 +6,73 @@
 
 html,
 body {
-  height: 100%;
   font-family:
     system-ui,
     -apple-system,
     sans-serif;
-  background-color: white;
-  color: black;
+  background: #efe2ba;
+  color: #3b2f2f;
   line-height: 1.6;
 }
 
+body {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+}
+
+.header {
+  background: #7f0909;
+  color: #d4a017;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Garamond', 'Times New Roman', serif;
+}
+
+.signInBtn {
+  background: linear-gradient(to bottom, #7f0909, #5a0606);
+  font-family: 'Garamond', 'Times New Roman', serif;
+  color: #ffd700; /* Burnished gold text */
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.4rem 1.5rem;
+  border: 2px solid #d4a017; /* gold border */
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.signInBtn:hover {
+  background: linear-gradient(to bottom, #9b111e, #7f0909);
+  color: #fff8e7; /* parchment cream */
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+}
+
+.leftSection {
+  background: #3e2723;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.rightSection {
+  background: #fff8e7;
+  padding: 1rem;
+}
 .container {
   display: flex;
   justify-content: center;
   gap: 2rem;
   padding: 15px;
   flex-wrap: wrap;
-}
-
-.headerCenter {
-  border-bottom: 1px solid black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: floralwhite;
 }
 
 .addBookDiv {
@@ -41,25 +84,35 @@ body {
 }
 
 .newBookBtn {
-  padding: 10px 25px;
-  background: greenyellow;
+  font-weight: bold;
+  padding: 0.4rem 1.5rem;
+  background: #f8f3e7; /* parchment */
+  color: #3b2f2f; /* dark ink text */
+  font-family: 'Garamond', 'Times New Roman', serif;
+  font-size: 1rem;
+  border: 2px solid #d4a017; /* gold border */
   border-radius: 6px;
   cursor: pointer;
-  border: 1px solid black;
-  color: black;
-  font-size: 15px;
-  width: 121px;
+  text-shadow: 1px 1px 1px #fff; /* soft glow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease-in-out;
 }
 
-.close {
-  background: red;
-  color: white;
+.newBookBtn:hover {
+  background: #fffdf6; /* lighter parchment */
+  color: #7c5a3c; /* warm wood accent */
 }
 
 .bookForm {
   display: none;
   gap: 1rem;
-  padding: 15px;
+  padding: 1.5rem;
+  flex-direction: column;
+  color: #fdefd3;
+  background: #581c1c;
+  border: 3px solid #c9a66b;
+  border-radius: 1rem;
+  font-family: 'Garamond', 'Times New Roman', serif;
 }
 
 .visible {
@@ -69,14 +122,43 @@ body {
 label {
   display: flex;
   flex-direction: column;
+  font-weight: bold;
+}
+
+.bookForm input,
+.bookForm select {
+  width: 100%;
+  padding: 0.3rem;
+  border: 2px solid #c9a66b;
+  border-radius: 6px;
+  background: #fdf6e3;
+  color: #3b2f2f;
+  font-family: inherit;
+}
+
+.bookForm input:focus,
+.bookForm select:focus {
+  outline: none;
+  border-color: #ffd60a;
+  box-shadow: 0 0 8px #ffd60a;
 }
 
 .addBookBtn {
   display: flex;
   justify-content: center;
-  align-self: end;
-  width: 75px;
-  padding: 2px 5px;
+  align-self: center;
+  background: linear-gradient(to bottom, #7f0909, #5a0606);
+  color: #ffd700;
+  font-weight: bold;
+  padding: 0.4rem 6.4px 0.6rem;
+  border: 2px solid #c9a66b;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.addBookBtn:hover:hover {
+  background: linear-gradient(to bottom, #9b111e, #7f0909);
+  color: #fff8e7;
 }
 
 .bookDiv {
@@ -88,7 +170,98 @@ label {
   min-width: 150px;
 }
 
-.bookDeleteBtn {
+.deleteBookBtn {
   border: none;
   cursor: pointer;
+  background: none;
+  height: 24px;
+}
+
+.editBookBtn {
+  border: none;
+  cursor: pointer;
+  background: none;
+  height: 24px;
+}
+
+.trashSvg {
+  pointer-events: none;
+}
+
+.editSvg {
+  pointer-events: none;
+}
+
+.rightSection {
+  background: #fff8e7; /* light cream parchment */
+  padding: 2rem;
+  font-family: 'Garamond', 'Times New Roman', serif;
+}
+
+.bookShelf {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 1rem;
+  background: #3b2314;
+  gap: 0.5rem;
+  border: 2px solid #d4b66c;
+}
+
+.wishlist,
+.collection {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.booksCategory {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.booksCategory h3 {
+  font-size: 1.3rem;
+  color: #7f0909; /* Gryffindor crimson */
+  display: grid;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  text-align: center;
+  padding: 0.5rem;
+  border: 1px solid black;
+  background: #7f0909;
+  color: #d4a017;
+}
+
+/* Book cards */
+.bookCard {
+  background: #fdf6e3; /* parchment tone */
+  border: 2px solid #c9a66b; /* bronze trim */
+  border-radius: 8px;
+  padding: 1rem;
+  overflow-wrap: anywhere;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cardBtns {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bookCard:hover {
+  transform: translateY(-3px);
+}
+
+.bookCard h4 {
+  color: #7f0909;
+  font-size: 1.1rem;
+}
+
+.bookCard p {
+  color: #3b2f2f;
+  font-size: 0.9rem;
 }

@@ -6,15 +6,21 @@
     <title>Starter Template</title>
   </head>
   <body>
-    <header>
-      <div class="headerCenter">
-        <img src="libLogo.png" alt="" />
+    <header class="header">
+      <div class="headerLogo">
+        <img src="logo.png" alt="" />
+      </div>
+      <div class="headerTitle">
+        <h1>BOOK COLLECTOR</h1>
+      </div>
+      <div>
+        <button class="signInBtn">Sign In</button>
       </div>
     </header>
-    <div class="addBookDiv">
-      <button class="newBookBtn">New Book</button>
-      <form class="bookForm">
-        <form>
+    <main class="main">
+      <div class="leftSection">
+        <button class="newBookBtn">New Book</button>
+        <form class="bookForm">
           <label for="bookName"
             >Book Title:
             <input type="text" id="bookName" name="bookName" />
@@ -27,19 +33,29 @@
             >Pages:
             <input type="number" id="bookPages" name="pages" />
           </label>
-          <label for="bookReadStatus"
+          <label for="bookStatus"
             >Status
-            <select id="bookReadStatus" name="bookReadStatus">
-              <option value="Read">Read</option>
-              <option value="Reading">Reading</option>
-              <option value="Not Read">Not Read</option>
+            <select id="bookStatus" name="bookStatus">
+              <option value="Collected">Collected</option>
+              <option value="Wishlist">Wishlist</option>
             </select>
           </label>
 
           <button class="addBookBtn">Add Book</button>
         </form>
-      </form>
-    </div>
-    <div class="container"></div>
+      </div>
+      <div class="rightSection">
+        <div class="bookShelf">
+          <div class="booksCategory">
+            <h3>Book Collection</h3>
+            <div class="collection"></div>
+          </div>
+          <div class="booksCategory">
+            <h3>Wishlist</h3>
+            <div class="wishlist"></div>
+          </div>
+        </div>
+      </div>
+    </main>
   </body>
 </html>
