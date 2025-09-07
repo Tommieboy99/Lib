@@ -9,15 +9,16 @@ class Book {
     this.pages = pages;
     this.status = status;
     this.id = crypto.randomUUID();
-}
-
-Book.prototype.changeStatus = function () {
-  if (this.status === 'Wishlist') {
-    this.status = 'Collected';
-  } else {
-    this.status = 'Wishlist';
   }
-};
+
+  changeStatus() {
+    if (this.status === 'Wishlist') {
+      this.status = 'Collected';
+    } else {
+      this.status = 'Wishlist';
+    }
+  }
+}
 
 function addBook(title, author, pages, status) {
   const book = new Book(title, author, pages, status);
