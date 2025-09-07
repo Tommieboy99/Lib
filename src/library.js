@@ -2,12 +2,13 @@ export { addBook, deleteBook, getBook };
 
 const library = [];
 
-function Book(title, author, pages, status) {
-  ((this.title = title),
-    (this.author = author),
-    (this.pages = pages),
-    (this.status = status),
-    (this.id = crypto.randomUUID()));
+class Book {
+  constructor(title, author, pages, status) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.status = status;
+    this.id = crypto.randomUUID();
 }
 
 Book.prototype.changeStatus = function () {
