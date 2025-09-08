@@ -1,9 +1,10 @@
 import './styles.css';
-import { displayBook, removeBookDisplay } from './ui';
-import { addBook, deleteBook, getBook } from './library';
+import { displayBook, removeBookDisplay } from './ui.js';
+import { addBook, deleteBook, getBook } from './library.js';
+import { validateFormInput } from './formValidation.js';
 
 const newBookBtn = document.querySelector('.newBookBtn');
-const addBookBtn = document.querySelector('.addBookBtn');
+const form = document.querySelector('.bookForm');
 const addBookForm = document.querySelector('.bookForm');
 
 newBookBtn.addEventListener('click', () => {
@@ -17,8 +18,14 @@ newBookBtn.addEventListener('click', () => {
   }
 });
 
-addBookBtn.addEventListener('click', (e) => {
+form.addEventListener('submit', (e) => {
   e.preventDefault();
+
+  const isValid = validateFormInput();
+
+  if (!isValid) {
+    return;
+  }
 
   const bookTitle = document.querySelector('#bookName').value;
   const bookAuthor = document.querySelector('#bookAuthor').value;
