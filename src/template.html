@@ -20,18 +20,21 @@
     <main class="main">
       <div class="leftSection">
         <button class="newBookBtn">New Book</button>
-        <form class="bookForm">
+        <form class="bookForm" novalidate>
           <label for="bookName"
             >Book Title:
-            <input type="text" id="bookName" name="bookName" />
+            <input type="text" id="bookName" name="bookName" required />
+            <span class="titleError"></span>
           </label>
           <label for="bookAuthor"
             >Author:
-            <input type="text" id="bookAuthor" name="author" />
+            <input type="text" id="bookAuthor" name="author" required />
+            <span class="authorError"></span>
           </label>
           <label for="bookPages"
             >Pages:
-            <input type="number" id="bookPages" name="pages" />
+            <input type="number" id="bookPages" name="pages" min="1" required />
+            <span class="pagesError"></span>
           </label>
           <label for="bookStatus"
             >Status
@@ -39,9 +42,10 @@
               <option value="Collected">Collected</option>
               <option value="Wishlist">Wishlist</option>
             </select>
+            <span class="statusError"></span>
           </label>
 
-          <button class="addBookBtn">Add Book</button>
+          <button type="submit" class="addBookBtn">Add Book</button>
         </form>
       </div>
       <div class="rightSection">
